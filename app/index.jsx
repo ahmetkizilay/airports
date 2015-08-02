@@ -1,6 +1,6 @@
 "use strict";
 
 var React = require("react");
-var Hello = require("./components/Hello.jsx");
+var LeafletMap = require("./components/LeafletMap.jsx");
 
-React.render(<Hello />, document.getElementById("app"));
+React.render(<LeafletMap />, document.getElementById("app"));

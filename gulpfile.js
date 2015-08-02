@@ -3,7 +3,10 @@ var eslint = require("gulp-eslint");
 var gutil = require("gulp-util");
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config.js");
-
+var order = require('gulp-order');
+var concat = require('gulp-concat');
+var sourcemaps = require('gulp-sourcemaps');
+var sass = require('gulp-sass');
 gulp.task("webpack", function(callback) {
 
     webpack(webpackConfig, function(err, stats) {
@@ -52,9 +55,25 @@ gulp.task('copy', function (callback) {
   });
 
   callback();
-})
+});
+
+gulp.task('sass', function() {
+  gulp.src('./app/css/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write())
+    .pipe(order([
+      'normalize.css',
+      'main.css'
+    ]))
+    .pipe(concat("main.css"))
+    .pipe(gulp.dest('./assets/'))
+});
 
 gulp.task('lint', ['lint-node', 'lint-react']);
 
+gulp.task('sass:watch', function() {
+  gulp.watch('./sass/**/*.scss', ['sass']);
+});
 
-gulp.task('default', ['lint', 'copy', 'webpack']);
+gulp.task('default', ['lint', 'copy', 'webpack', 'sass']);
