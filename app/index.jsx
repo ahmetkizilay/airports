@@ -1,6 +1,6 @@
 "use strict";
 
 var React = require("react");
-var LeafletMap = require("./components/LeafletMap.jsx");
+var AirportMap = require("./components/AirportMap.jsx");
 
-React.render(<LeafletMap />, document.getElementById("app"));
+React.render(<AirportMap />, document.getElementById("app"));
