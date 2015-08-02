@@ -8,13 +8,13 @@ var data = [
   },
   {
     id: 2,
-    name: "İzmir Adnan Menderes Havalimanı",
-    coordinates: [ 38.289167, 27.155000 ]
+    name: "Ankara Esenboğa Havalimanı",
+    coordinates: [ 40.119066, 32.983613 ]
   },
   {
     id: 3,
-    name: "Muğla Dalaman Havalimanı",
-    coordinates: [ 36.712500, 28.791389 ]
+    name: "İzmir Adnan Menderes Havalimanı",
+    coordinates: [ 38.289167, 27.155000 ]
   },
   {
     id: 4,
@@ -125,6 +125,156 @@ var data = [
     id: 25,
     name: "Kahramanmaraş Havalimanı",
     coordinates: [ 37.538333, 36.951944 ]
+  },
+  {
+    id: 26,
+    name: "Kars Harakani Havalimanı",
+    coordinates: [ 40.558611, 43.098889 ]
+  },
+  {
+    id: 27,
+    name: "Kayseri Havalimanı",
+    coordinates: [ 38.770278, 35.495278 ]
+  },
+  {
+    id: 28,
+    name: "Konya Havalimanı",
+    coordinates: [ 37.980556, 32.562500 ]
+  },
+  {
+    id: 29,
+    name: "Malatya Havalimanı",
+    coordinates: [ 38.432222, 38.083056 ]
+  },
+  {
+    id: 30,
+    name: "Mardin Havalimanı",
+    coordinates: [ 37.232778, 40.640556 ]
+  },
+  {
+    id: 31,
+    name: "Muş Havalimanı",
+    coordinates: [ 38.744722, 41.653889 ]
+  },
+  {
+    id: 32,
+    name: "Samsun Çarşamba Havalimanı",
+    coordinates: [ 41.265556, 36.548611 ]
+  },
+  {
+    id: 33,
+    name: "Siirt Havalimanı",
+    coordinates: [ 37.978056, 41.839167 ]
+  },
+  {
+    id: 34,
+    name: "Sinop Havalimanı",
+    coordinates: [ 42.015833, 35.066389 ]
+  },
+  {
+    id: 35,
+    name: "Sivas Nuri Demirağ Havalimanı",
+    coordinates: [ 39.814167, 36.902500 ]
+  },
+  {
+    id: 36,
+    name: "Şanlıurfa Gap Havalimanı",
+    coordinates: [ 37.456667, 38.908056 ]
+  },
+  {
+    id: 37,
+    name: "Tekirdağ Çorlu Havalimanı",
+    coordinates: [ 41.129444, 27.906389 ]
+  },
+  {
+    id: 38,
+    name: "Tokat Havalimanı",
+    coordinates: [ 40.311667, 36.373611 ]
+  },
+  {
+    id: 39,
+    name: "Uşak Havalimanı",
+    coordinates: [ 38.681389, 29.471667 ]
+  },
+  {
+    id: 40,
+    name: "Van Ferit Melen Havalimanı",
+    coordinates: [ 38.468611, 43.330833 ]
+  },
+  {
+    id: 41,
+    name: "Zonguldak Çaycuma Havalimanı",
+    coordinates: [ 41.50437,32.095274 ]
+  },
+  {
+    id: 42,
+    name: "Antalya Gazipaşa - Alanya Havalimanı",
+    coordinates: [ 36.299167, 32.301389 ]
+  },
+  {
+    id: 43,
+    name: "Çanakkale Gökçeada Havalimanı",
+    coordinates: [ 40.201111, 25.882222 ]
+  },
+  {
+    id: 44,
+    name: "Batman Havalimanı",
+    coordinates: [ 37.932222, 41.116389 ]
+  },
+  {
+    id: 45,
+    name: "Kocaeli Cengiz Topel Havalimanı",
+    coordinates: [ 40.738763,30.09725 ]
+  },
+  {
+    id: 46,
+    name: "Iğdır Havalimanı",
+    coordinates: [ 39.975249,43.875706 ]
+  },
+  {
+    id: 47,
+    name: "Bingöl Havalimanı",
+    coordinates: [ 38.861111, 40.592500 ]
+  },
+  {
+    id: 48,
+    name: "Zafer Havalimanı",
+    coordinates: [ 39.111456, 30.130217 ]
+  },
+  {
+    id: 49,
+    name: "Kastamonu Havalimanı",
+    coordinates: [ 41.316944, 33.796111 ]
+  },
+  {
+    id: 50,
+    name: "Şırnak Şerafettin Elçi Havalimanı",
+    coordinates: [ 37.364013,42.059522 ]
+  },
+  {
+    id: 54,
+    name: "Ordu Giresun Havalimanı",
+    coordinates: [ 40.967149, 38.086342 ]
+  },
+  {
+    id: 55,
+    name: "Hakkari Yüksekova Selahaddin Eyyubi Havalimanı",
+    coordinates: [ 37.551667, 44.233611 ]
+  },
+  {
+    id: 0,
+    name: "İstanbul Sabiha Gökçen Havalimanı",
+    coordinates: [ 40.905371, 29.3168603 ]
+  },
+  {
+    id: 0,
+    name: "Eskişehir Anadolu Havalimanı",
+    coordinates: [ 40.905371, 29.3168603 ]
+  },
+  {
+    id: 0,
+    name: "Aydın Çıldır Havalimanı",
+    coordinates: [ 37.815000, 27.889167 ]
   }
 ];
 
