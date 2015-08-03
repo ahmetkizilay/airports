@@ -283,17 +283,11 @@ var data = [
   }
 ];
 
-var selectedId = 0;
 var CHANGE_EVENT = "change";
 
 var AirportStore = assign({}, EventEmitter.prototype, {
   getAll: function() {
-    return data.map(function (airport) {
-      return {
-        name: airport.name,
-        coordinates: airport.coordinates
-      }
-    });
+    return data;
   },
 
   emitChange: function() {
@@ -311,10 +305,6 @@ var AirportStore = assign({}, EventEmitter.prototype, {
 
 AirportDispatcher.register(function (action) {
   switch (action.actionType) {
-    case AirportConstants.AIRPORT_SELECT:
-      selectedId = action.id;
-      AirportStore.emitChange();
-      break;
     default:
       break;
   }

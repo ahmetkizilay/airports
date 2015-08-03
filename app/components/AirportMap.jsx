@@ -5,10 +5,15 @@ var React = require("react");
 
 var map;
 var LeafletMap = React.createClass({
-  displayName: "LeafletMap",
+  displayName: "Airport Map",
+
+  propTypes: {
+    airports: React.PropTypes.array.isRequired
+  },
 
   componentDidMount: function() {
     var airports = this.props.airports;
+    var _this = this;
 
     map = L.map("map").setView(airports[0].coordinates, 6);
     map.zoomControl.setPosition("bottomright");
@@ -37,7 +42,7 @@ var LeafletMap = React.createClass({
           this.closePopup();
         })
         .on("click", function() {
-          console.log("clicked on me");
+          _this.props.onSelect(airport.id);
         });
     });
   },
@@ -48,7 +53,7 @@ var LeafletMap = React.createClass({
 
   render: function() {
     return (
-      <div id="map" className="map-container"></div>
+      <div className="map-container" id="map"></div>
     );
   }
 });
