@@ -1,6 +1,6 @@
 "use strict";
 
 var React = require("react");
-var AirportMap = require("./components/AirportMap.jsx");
+var AirportApp = require("./components/AirportApp.jsx");
 
-React.render(<AirportMap />, document.getElementById("app"));
+React.render(<AirportApp />, document.getElementById("app"));

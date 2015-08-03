@@ -1,4 +1,16 @@
+div.app-container {
+  position: relative;
+}
+
 div.map-container {
+  position: absolute;
   width: 100%;
   height: 100vh;
+}
+
+div.detail {
+  position: absolute;
+  background-color: white;
+  padding: 16px;
+  margin: 16px;
 }

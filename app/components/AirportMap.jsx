@@ -2,25 +2,16 @@
 "use strict";
 
 var React = require("react");
-var AirportStore = require("../stores/AirportStore.js");
 
 var map;
 var LeafletMap = React.createClass({
   displayName: "LeafletMap",
-  getInitialState: function() {
-    return {
-      airports: AirportStore.getAll()
-    };
-  },
 
   componentDidMount: function() {
-    var airports = this.state.airports;
+    var airports = this.props.airports;
 
     map = L.map("map").setView(airports[0].coordinates, 6);
     map.zoomControl.setPosition("bottomright");
-    // L.control.zoom({
-    //   position: "bottomright"
-    // }).addTo(map);
 
     L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYWhtZXRraXppbGF5IiwiYSI6IjljZDljZDAxYmExY2VlZjlhZjk4M2VlMDgxMjc5MWFmIn0.bcWcBTBeqY7qkTfEuIEeqg", {
       maxZoom: 12,
@@ -49,6 +40,10 @@ var LeafletMap = React.createClass({
           console.log("clicked on me");
         });
     });
+  },
+
+  shouldComponentUpdate: function() {
+    return false;
   },
 
   render: function() {

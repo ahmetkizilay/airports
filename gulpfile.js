@@ -1,23 +1,15 @@
 var gulp = require("gulp");
 var eslint = require("gulp-eslint");
 var gutil = require("gulp-util");
-var webpack = require("webpack");
-var webpackConfig = require("./webpack.config.js");
 var order = require('gulp-order');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
-gulp.task("webpack", function(callback) {
-
-    webpack(webpackConfig, function(err, stats) {
-      if(err) throw new gutil.PluginError("webpack", err);
-      gutil.log("[webpack]", stats.toString({
-        colors: true
-      }));
-
-      callback();
-    });
-});
+var browserify = require("browserify");
+var reactify = require("reactify");
+var uglify = require("gulp-uglify");
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 
 gulp.task('lint-node', function () {
     return gulp.src([
@@ -45,17 +37,6 @@ gulp.task('lint-react', function () {
     .pipe(eslint.failOnError());
 });
 
-gulp.task('copy', function (callback) {
-  var srcDestMap = [
-    { src: 'node_modules/react/dist/react-with-addons.js', dest: 'assets/'}
-  ];
-
-  srcDestMap.forEach(function (pair) {
-      gulp.src(pair.src).pipe(gulp.dest(pair.dest));
-  });
-
-  callback();
-});
 
 gulp.task('sass', function() {
   gulp.src('./app/css/*.scss')
@@ -72,8 +53,26 @@ gulp.task('sass', function() {
 
 gulp.task('lint', ['lint-node', 'lint-react']);
 
+gulp.task('browserify', function() {
+  var b = browserify({
+    entries: './app/index.jsx',
+    debug: true,
+    // defining transforms here will avoid crashing your stream
+    transform: [reactify]
+  });
+
+  return b.bundle()
+    .pipe(source('bundle.min.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(uglify())
+        .on('error', gutil.log)
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./assets/'));
+});
+
 gulp.task('sass:watch', function() {
   gulp.watch('./sass/**/*.scss', ['sass']);
 });
 
-gulp.task('default', ['lint', 'copy', 'webpack', 'sass']);
+gulp.task('default', ['lint', 'browserify', 'sass']);

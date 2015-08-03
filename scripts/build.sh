@@ -2,4 +2,4 @@
 
 gulp=node_modules/.bin/gulp
 
-$gulp default
+$gulp

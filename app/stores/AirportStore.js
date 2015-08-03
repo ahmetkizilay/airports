@@ -1,5 +1,10 @@
 "use strict";
 
+var assign = require("object-assign");
+var EventEmitter = require("events").EventEmitter;
+var AirportDispatcher = require("../dispatcher/AirportDispatcher.js");
+var AirportConstants = require("../constants/AirportConstants.js");
+
 var data = [
   {
     id: 1,
@@ -278,7 +283,10 @@ var data = [
   }
 ];
 
-var AirportStore = {
+var selectedId = 0;
+var CHANGE_EVENT = "change";
+
+var AirportStore = assign({}, EventEmitter.prototype, {
   getAll: function() {
     return data.map(function (airport) {
       return {
@@ -286,7 +294,30 @@ var AirportStore = {
         coordinates: airport.coordinates
       }
     });
+  },
+
+  emitChange: function() {
+    this.emit(CHANGE_EVENT);
+  },
+
+  addChangeListener: function (callback) {
+    this.on(CHANGE_EVENT, callback);
+  },
+
+  removeChangeListener: function (callback) {
+    this.removeListener(CHANGE_EVENT, callback);
   }
-};
+});
+
+AirportDispatcher.register(function (action) {
+  switch (action.actionType) {
+    case AirportConstants.AIRPORT_SELECT:
+      selectedId = action.id;
+      AirportStore.emitChange();
+      break;
+    default:
+      break;
+  }
+});
 
 module.exports = AirportStore;
